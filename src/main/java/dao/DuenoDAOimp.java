@@ -7,9 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class DuenoDAOimp implements DuenoDAO {
 /*
     El entity manager tiene dos responsabilidad fundamentales:

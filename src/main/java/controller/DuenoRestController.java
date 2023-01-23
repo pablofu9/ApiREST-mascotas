@@ -11,9 +11,8 @@ import service.DuenoService;
 
 import java.util.List;
 
-@Controller
 @RestController
-@RequestMapping("/")
+@RequestMapping("/mascotas")
 public class DuenoRestController {
 
     @Autowired

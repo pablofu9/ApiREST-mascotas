@@ -5,7 +5,7 @@ import entity.Perro;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service
+
 public interface DuenoService {
 
 
@@ -15,5 +15,5 @@ public interface DuenoService {
 
     Dueno findByIdDueno(int id);
 
-   
+
 }

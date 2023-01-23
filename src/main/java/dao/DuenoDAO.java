@@ -8,12 +8,11 @@ import java.util.List;
 public interface DuenoDAO {
 
 
-    List<Dueno> findAllDuenos();
+    public List<Dueno> findAllDuenos();
 
+    public Dueno findByIdDueno(int id);
 
-    Dueno findByIdDueno(int id);
-
-    void saveDueno(Dueno dueno);
+    public void saveDueno(Dueno dueno);
 
 
 }
