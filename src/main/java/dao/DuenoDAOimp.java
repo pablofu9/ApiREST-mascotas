@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class DAOimp implements DAO {
+public class DuenoDAOimp implements DuenoDAO {
 /*
     El entity manager tiene dos responsabilidad fundamentales:
         • Define una conexión transaccional con la base de datos que debemos abrir y mantener
@@ -44,22 +44,7 @@ public class DAOimp implements DAO {
     }
 
     //Metodo para encontrar todos los perros
-    @Override
-    public List<Perro> findAllPerros(){
-        Session currentSession = entityManager.unwrap(Session.class);
-        /*
-        Si no quisieramos utilizar hibernate y usar JPA EntityManager por tanto la anterior linea nos sobraria
-        EntityManager tiene una forma de hacer consultas
-            EntityManager.createQuery(String, Class)
-        es parte de JPA al igual que TypedQuery.getResultList() .
-        Por tanto la llamada a EntityManager.unwrap() se puede eliminar y reemplazar con entityManager
-         */
-        Query<Perro> theQuery = currentSession.createQuery("SELECT u from Perro u", Perro.class);
 
-        List<Perro> perros = theQuery.getResultList();
-
-        return perros;
-    }
 
 
 
@@ -71,14 +56,7 @@ public class DAOimp implements DAO {
 
         return dueno;
     }
-    @Override
-    public Perro findByIdPerro(int id) {
-        Session currentSession = entityManager.unwrap(Session.class);
 
-        Perro perro = currentSession.get(Perro.class, id);
-
-        return perro;
-    }
 
     @Override
     public void saveDueno(Dueno dueno) {
@@ -89,14 +67,6 @@ public class DAOimp implements DAO {
         currentSession.close();
 
     }
-    @Override
-    public void savePerro(Perro perro) {
-        Session currentSession = entityManager.unwrap(Session.class);
-        Transaction t = currentSession.beginTransaction();
-        currentSession.saveOrUpdate(perro);
-        t.commit();
-        currentSession.close();
 
-    }
 
 }

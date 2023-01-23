@@ -1,29 +1,21 @@
 package service;
 
-import dao.DAO;
+import dao.DuenoDAO;
 import entity.Dueno;
 import entity.Perro;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class ServiceImp implements Service{
+public class DuenoServiceImp implements DuenoService {
 
     @Autowired
-    private DAO dao;
+    private DuenoDAO dao;
 
     @Override
     public List<Dueno> findAllDuenos(){
         List<Dueno> listaDuenos= dao.findAllDuenos();
         return listaDuenos;
-
-
-
-    }
-    @Override
-    public List<Perro> findAllPerros(){
-        List<Perro> listaPerros= dao.findAllPerros();
-        return listaPerros;
 
     }
 
@@ -33,9 +25,5 @@ public class ServiceImp implements Service{
         return dueno;
     }
 
-    @Override
-    public Perro findByIdPerro(int id){
-        Perro perro = dao.findByIdPerro(id);
-        return perro;
-    }
+
 }
